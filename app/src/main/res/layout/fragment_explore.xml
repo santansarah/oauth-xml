@@ -19,12 +19,12 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/ivProfileIcon"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:layout_centerVertical="true"
                 android:padding="10dp"
                 app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
-                app:strokeColor="@android:color/darker_gray"
+                app:strokeColor="?attr/colorSecondary"
                 app:strokeWidth="4dp"
                 tools:src="@drawable/me" />
 
@@ -40,7 +40,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="6dp"
-                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                    android:textAppearance="?attr/textAppearanceTitleLarge"
                     tools:text="Sarah Brenner"
                     android:includeFontPadding="false"/>
 
@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:padding="6dp"
                     android:includeFontPadding="false"
-                    android:textAppearance="@style/TextAppearance.Material3.TitleSmall"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
                     tools:text="Phoenix, AZ" />
             </LinearLayout>
 
@@ -66,7 +66,7 @@
         android:text="Your Repos"
         android:padding="16dp"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+        android:textAppearance="?attr/textAppearanceHeadlineMedium"
         android:background="?attr/black50"
         android:textColor="?attr/colorOnPrimary"
         />

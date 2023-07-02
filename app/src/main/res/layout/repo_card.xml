@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:text="Repo-Name"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
+            android:textAppearance="?attr/textAppearanceDisplayMedium"
             android:textAlignment="center"
             android:padding="6dp"
             />
@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:text="full/Repo-Name"
-            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            android:textAppearance="?attr/textAppearanceTitleLarge"
             android:textAlignment="center"
             />
 
