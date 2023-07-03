@@ -14,7 +14,7 @@ appProperties.load(FileInputStream(appPropertiesFile))
 
 android {
     namespace = "com.santansarah.oauthxml"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
 
@@ -23,7 +23,7 @@ android {
 
         applicationId = "com.santansarah.oauthxml"
         minSdk = 29
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -65,6 +65,7 @@ dependencies {
 
     implementation(libs.bundles.ktor)
     implementation(libs.bundles.koin)
+    implementation(libs.glide)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

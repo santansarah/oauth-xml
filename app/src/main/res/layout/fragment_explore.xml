@@ -11,7 +11,7 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp">
+        android:layout_margin="10dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -63,7 +63,7 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="14dp"
-        android:text="Your Repos"
+        android:text="Browse Your Repos"
         android:padding="16dp"
         android:textAlignment="center"
         android:textAppearance="?attr/textAppearanceHeadlineMedium"
@@ -74,9 +74,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/carousel_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:clipChildren="false"
+        android:layout_height="400dp"
         android:layout_marginTop="30dp"
+        android:clipChildren="false"
         android:clipToPadding="false" />
 
 </LinearLayout>

@@ -1,41 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.carousel.MaskableFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    >
+    android:layout_marginHorizontal="6dp"
+    android:orientation="vertical">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/mcvRepoItem"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_margin="16dp"
-        >
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="20dp">
 
-        <TextView
-            android:id="@+id/tvRepoName"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:text="Repo-Name"
-            android:textAppearance="?attr/textAppearanceDisplayMedium"
-            android:textAlignment="center"
-            android:padding="6dp"
-            />
+            <TextView
+                android:id="@+id/tvRepoName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                tools:text="Repo-Name" />
 
-        <TextView
-            android:id="@+id/tvRepoFullName"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:text="full/Repo-Name"
-            android:textAppearance="?attr/textAppearanceTitleLarge"
-            android:textAlignment="center"
-            />
+            <TextView
+                android:id="@+id/tvRepoFullName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAlignment="center"
+                android:textAppearance="?attr/textAppearanceTitleSmall"
+                tools:text="full/Repo-Name" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/repoDivider"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginVertical="20dp"
+                app:dividerColor="?attr/colorPrimary" />
+
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                tools:text="This is my amazing repo." />
 
         </LinearLayout>
 

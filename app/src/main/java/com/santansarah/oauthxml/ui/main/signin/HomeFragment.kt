@@ -23,9 +23,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         _binding = FragmentHomeBinding.bind(view)
 
-        //tmp
-        findNavController().navigate(R.id.action_navigation_home_to_exploreFragment)
-
         val btnSignIn = binding.btnSignIn
         btnSignIn.setOnClickListener {
             val authURL = mainViewModel.getAuthURL()

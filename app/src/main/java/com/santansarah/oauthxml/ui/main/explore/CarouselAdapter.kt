@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.santansarah.oauthxml.data.remote.models.UserRepos
+import com.santansarah.oauthxml.data.remote.models.UserRepo
 import com.santansarah.oauthxml.databinding.RepoCardBinding
 
-class CarouselAdapter(private val userRepos: List<UserRepos>) :
+class CarouselAdapter(private val userUserRepos: List<UserRepo>) :
     RecyclerView.Adapter<CarouselAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
@@ -20,12 +20,13 @@ class CarouselAdapter(private val userRepos: List<UserRepos>) :
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
         RepoCardBinding.bind(viewHolder.itemView).apply{
-            tvRepoName.text = userRepos[position].repoName
-            tvRepoFullName.text = userRepos[position].repoFullName
+            tvRepoName.text = userUserRepos[position].name
+            tvRepoFullName.text = userUserRepos[position].fullName
+            tvDescription.text = userUserRepos[position].description
         }
 
     }
 
-    override fun getItemCount() = userRepos.count()
+    override fun getItemCount() = userUserRepos.count()
 
 }
