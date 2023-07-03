@@ -19,3 +19,7 @@ local.properties
 /.idea/gradle.xml
 /.idea/kotlinc.xml
 /.idea/misc.xml
+/.idea/.name
+/.idea/vcs.xml
+/app/src/main/java/com/santansarah/oauthxml/data/remote/models/user.json
+/app/src/main/java/com/santansarah/oauthxml/data/remote/models/repos.json
