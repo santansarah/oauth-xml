@@ -66,6 +66,7 @@ dependencies {
     implementation(libs.bundles.ktor)
     implementation(libs.bundles.koin)
     implementation(libs.glide)
+    implementation(libs.lottie)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

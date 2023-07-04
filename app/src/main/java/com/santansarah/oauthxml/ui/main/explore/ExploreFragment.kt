@@ -26,38 +26,44 @@ class ExploreFragment : Fragment(R.layout.fragment_explore) {
 
         _binding = FragmentExploreBinding.bind(view)
 
-        mainViewModel.getUser().observe(viewLifecycleOwner) { currentUserInfo ->
-            if (currentUserInfo != null) {
+        mainViewModel.exploreState().observe(viewLifecycleOwner) { currentState ->
+            if (currentState.userInfo != null) {
+
+                val userInfo = currentState.userInfo
 
                 binding.apply {
 
                     Glide.with(this@ExploreFragment)
-                        .load(currentUserInfo.avatarUrl)
+                        .load(userInfo.avatarUrl)
                         .placeholder(R.drawable.ic_launcher_background)
                         .error(R.drawable.ic_launcher_background)
                         .into(ivProfileIcon)
 
-                    tvUserName.text = currentUserInfo.name
-                    tvLocation.text = currentUserInfo.location
+                    tvUserName.text = userInfo.name
+                    tvLocation.text = userInfo.location
 
                 }
 
             }
-        }
 
-        mainViewModel.userRepos.observe(viewLifecycleOwner) {repoList ->
-            val carouselAdapter = repoList?.let { CarouselAdapter(it) }
+            if (currentState.loadingRepos) {
+                binding.animationView.visibility = View.VISIBLE
+            } else
+            {
+                binding.animationView.visibility = View.GONE
+                val carouselAdapter = currentState.repos?.let { CarouselAdapter(it) }
 
-            val carouselLayoutManager = CarouselLayoutManager(HeroCarouselStrategy())
-            val snapHelper: SnapHelper = CarouselSnapHelper()
+                val carouselLayoutManager = CarouselLayoutManager(HeroCarouselStrategy())
+                val snapHelper: SnapHelper = CarouselSnapHelper()
 
-            binding.carouselRecyclerView.apply {
-                adapter = carouselAdapter
-                layoutManager = carouselLayoutManager
-                snapHelper.attachToRecyclerView(this)
+                binding.carouselRecyclerView.apply {
+                    adapter = carouselAdapter
+                    layoutManager = carouselLayoutManager
+                    snapHelper.attachToRecyclerView(this)
+                }
+
             }
         }
-
     }
 
     override fun onDestroyView() {

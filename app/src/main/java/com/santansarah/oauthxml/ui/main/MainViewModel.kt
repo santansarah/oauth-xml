@@ -10,6 +10,12 @@ import com.santansarah.oauthxml.data.remote.models.User
 import com.santansarah.oauthxml.ui.OAuthManager
 import kotlinx.coroutines.launch
 
+data class ExploreState(
+    val loadingUser: Boolean,
+    val loadingRepos: Boolean,
+    val userInfo: User?,
+    val repos: List<UserRepo>?
+)
 
 class MainViewModel(
     private val oAuthManager: OAuthManager,
@@ -17,17 +23,16 @@ class MainViewModel(
 ) : ViewModel() {
 
     val accessToken = oAuthManager.accessToken
-    private var _user: MutableLiveData<User?> = MutableLiveData()
 
-    private var _userRepos: MutableLiveData<List<UserRepo>?> = MutableLiveData()
-    val userRepos: LiveData<List<UserRepo>?>
-        get() = _userRepos
+    private var _exploreState: MutableLiveData<ExploreState> = MutableLiveData()
 
-    fun getUser(): LiveData<User?> {
-        if (_user.value == null) {
+    fun exploreState(): LiveData<ExploreState> {
+        if (_exploreState.value == null) {
+            _exploreState.value = ExploreState(loadingUser = true,
+                loadingRepos = true, null, null)
             getUserInfo()
         }
-        return _user
+        return _exploreState
     }
 
     fun validate(code: String?, state: String?) {
@@ -40,19 +45,13 @@ class MainViewModel(
     private fun getUserInfo() {
         accessToken.value?.let {token ->
             viewModelScope.launch {
-                _user.value = userApi.getUser(token)
-                _user.value?.let {user ->
-                    _userRepos.value = userApi.getUserRepos(
-                        token)
-                }
-            }
-        }
-    }
 
-    fun getUserRepos() {
-        accessToken.value?.let {
-            viewModelScope.launch {
-                _user.value = userApi.getUser(it)
+                val userInfo = userApi.getUser(token)
+                _exploreState.value = _exploreState.value?.copy(loadingUser = false, userInfo = userInfo)
+
+                val repos = userApi.getUserRepos(token)
+                _exploreState.value = _exploreState.value?.copy(loadingRepos = false, repos = repos)
+
             }
         }
     }
